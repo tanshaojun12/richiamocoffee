@@ -1,0 +1,12 @@
+$servername = "localhost"; //server
+$username = "root"; //username
+$password = ""; //password
+$dbname = "richiamocoffee";  //database
+
+Admin login
+Admin
+123456789
+
+Customer can register
+Choyyee
+Cy1234567

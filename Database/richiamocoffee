@@ -1,0 +1,335 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Dec 27, 2023 at 04:01 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `onlinefoodphp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `adm_id` int(222) NOT NULL,
+  `username` varchar(222) NOT NULL,
+  `password` varchar(222) NOT NULL,
+  `email` varchar(222) NOT NULL,
+  `code` varchar(222) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adm_id`, `username`, `password`, `email`, `code`, `date`) VALUES
+(1, 'admin', '25f9e794323b453885f5181f1b624d0b', 'admin@mail.com', '', '2023-12-25 06:02:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `branch`
+--
+
+CREATE TABLE `branch` (
+  `branch_id` int(222) NOT NULL,
+  `state_id` int(222) NOT NULL,
+  `title` varchar(222) NOT NULL,
+  `email` varchar(222) NOT NULL,
+  `phone` varchar(222) NOT NULL,
+  `url` varchar(222) NOT NULL,
+  `o_hr` varchar(222) NOT NULL,
+  `c_hr` varchar(222) NOT NULL,
+  `o_days` varchar(222) NOT NULL,
+  `address` text NOT NULL,
+  `image` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `branch`
+--
+
+INSERT INTO `branch` (`branch_id`, `state_id`, `title`, `email`, `phone`, `url`, `o_hr`, `c_hr`, `o_days`, `address`, `image`, `date`) VALUES
+(1, 6, 'Richiamo Coffee Parit Raja', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'No.64, Jalan Universiti 1, Taman Universiti, 86400 Parit Raja, Johor\r\nParit Raja', '658ac58243b58.jpg', '2023-12-27 13:26:49'),
+(2, 6, 'Richiamo Coffee Batu Pahat', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'No.10, Jalan Sulaiman, 83000 Batu Pahat, Selangor\r\nBatu Pahat', '658ac58243b58.png', '2023-12-26 13:00:43'),
+(3, 1, 'Richiamo Coffee UTMKL', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', '1-23 Residensi UTMKL, Jalan Maktab, 54000 Wilayah Persekutuan, Kuala Lumpur.\r\nDato Keramat', '658ac58243b58.png', '2023-12-26 13:16:34'),
+(4, 1, 'Richiamo Coffee MRT Ampang Park', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'MRT AMPANG PARK 190, JALAN TUN RAZAK, HAMPSHIRE PARK, 50450 KUALA LUMPUR.\r\nAmpang', '658ac58243b58.png', '2023-12-26 13:16:47'),
+(5, 2, 'Richiamo Coffee Seremban 3', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'GF-001 & GF-002 Unicity Mall, Persiaran Seremban 3, 70300 Seremban, Negeri Sembilan\r\nSeremban 3', '658ac58243b58.png', '2023-12-26 13:19:00'),
+(6, 2, 'Richiamo Coffee Seremban 2', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'NO.32-G Jalan S2 D39, City Centre Seremban 2, 70300 Seremban, Negeri Sembilan\r\nSeremban 2', '658ac58243b58.png', '2023-12-26 13:19:03'),
+(7, 3, 'Richiamo Coffee Pendang', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'No.14A, Kawasan Perniagaan Kiara Mas, jalan Tanah Merah, 06700 Pendang, Kedah\r\nPendang', '658ac58243b58.png', '2023-12-26 13:19:06'),
+(8, 3, 'Richiamo Coffee Sungai Petani', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Caltex Seri Bayu, 23, Jalan Bayu Pelangi 1, Taman Bayu Pelangi, 08100 Sungai Lalang, Kedah Darul Aman.\r\nSg Petani\r\n\r\n', '658ac58243b58.png', '2023-12-26 13:19:11'),
+(9, 4, 'Richiamo Coffee Seberang Jaya', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', '22, Jalan Todak 5, 13700 Seberang Jaya, Pulau Pinang\r\nSeberang Jaya', '658ac58243b58.png', '2023-12-26 13:23:45'),
+(10, 4, 'Richiamo Coffee G Hotel @ Gurney', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'NO G-01, GROUND FLOOR, CENTRAL @ GURNEY, 168-A, OERSIARAN GURNEY, 10250 GEORGE TOWN, PULAU PINANG\r\nGeorge Town', '658ac58243b58.png', '2023-12-26 13:23:48'),
+(11, 5, 'Richiamo Coffee Batang Kali', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', '49-G, Jalan Ara 2, Pusat Perdagangan Ara Seksyen 5, Bandar Utama Batang Kali, 44300 Batang Kali, Selangor\r\nRawang\r\n\r\n', '658ac58243b58.png', '2023-12-26 13:23:51'),
+(12, 5, 'Richiamo Coffee Kuala Selangor', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', '13G, Jalan Medan Niaga 3, 45000 Kuala Selangor, Selangor\r\nKuala Selangor\r\n\r\n', '658ac58243b58.png', '2023-12-26 13:23:53'),
+(13, 7, 'Richiamo Coffee Kuala Lipis', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Petron Lipis Lempoyang, Lot 1, Taman Permai Prima, Jalan Bypass Lipis, 27200 Kuala Lipis, Pahang\r\nKuala Lipis', '658ac58243b58.png', '2023-12-26 13:23:55'),
+(14, 7, 'Richiamo Coffee Kuala Kangsar', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Petron Lubuk Merbau, Lot 3590, Jalan Baling, Kampung Pasir, 33010 Kuala Kangsar, Perak\r\nKuala Kangsar\r\n\r\n', '658ac58243b58.png', '2023-12-26 13:23:58'),
+(15, 8, 'Richiamo Coffee Kota Laksamana', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Asiatic Hotel, 2E Jalan KLJ 4, Taman Kota Laksamana, 75200 Melaka\r\nKota Laksamana', '658ac58243b58.png', '2023-12-26 13:24:01'),
+(16, 8, 'Richiamo Coffee AEON Melaka Shopping Centre', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Lot G-02, Aeon Melaka Shopping CentreLebuh Ayer Keroh, 75450 Melaka\r\nAyer Keroh\r\n', '658ac58243b58.png', '2023-12-26 13:24:04'),
+(17, 9, 'Richiamo Coffee Kuala Lipis', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Petron Lipis Lempoyang, Lot 1, Taman Permai Prima, Jalan Bypass Lipis, 27200 Kuala Lipis, Pahang\r\nKuala Lipis', '658ac58243b58.png', '2023-12-26 13:31:08'),
+(18, 9, 'Richiamo Coffee Raub', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', '38 & 39, Jalan Lestari 1, Taman Amalina Lestari, 27600 Raub, Pahang\r\nRaub', '658ac58243b58.png', '2023-12-26 13:31:19'),
+(19, 10, 'Richiamo Coffee Seri Iskandar', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'No.2, Jalan PP7, Bandar Universiti, 32610 Seri Iskandar, Perak\r\nSeri Iskandar', '658ac58243b58.png', '2023-12-26 13:31:24'),
+(20, 10, 'Richiamo Coffee Manjung', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'LOT NO 13107, PUSAT PERNIAGAAN MANJUNG POINT 1, 32040 SERI MANJUNG, PERAK\r\nManjung', '658ac58243b58.png', '2023-12-26 13:31:26'),
+(21, 11, 'Richiamo Coffee Kubang Gajah Arau', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'BHPETROL KUBANG GAJAH, LOT 631, MUKIM SG ADAM, KUBANG GAJAH, JALAN KANGAR - ARAU, 02600 ARAU, PERLIS\r\nArau', '658ac58243b58.png', '2023-12-26 13:31:29'),
+(22, 11, 'Richiamo Coffee UiTM Arau', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Lot 19 & 20, Anjung Siswa, UiTM Perlis, Arau Perlis\r\nArau', '658ac58243b58.png', '2023-12-26 13:31:32'),
+(23, 12, 'Richiamo Coffee Alamesra KK', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Lot 133 Ground Floor Block P, Alamesra Permai, Lorong Plaza Permai 4, Kota Kinabalu, Sabah\r\nKota Kinabalu', '658ac58243b58.png', '2023-12-26 13:31:36'),
+(24, 12, 'Richiamo Coffee UNIMAS', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Student Pavillion, Universiti Malaysia Sarawak, 94300 Kuching, Sarawak\r\nSamarahan\r\n', '658ac58243b58.png', '2023-12-26 13:32:44'),
+(25, 13, 'Richiamo Coffee Menara Prisma', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'Menara Prisma, Persiaran Perdana, Presint 3, 62100 Putrajaya\r\nPutrajaya Presint 13\r\n\r\n', '658ac58243b58.png', '2023-12-26 13:32:51'),
+(26, 13, 'Richiamo Coffee Presint 15', 'info@richiamocoffee.com', '03-2728 2926', 'https://richiamocoffee.com/', '10am', '10pm', 'Mon-Fri', 'No.20 Jalan Diplomatik 1, Presint 15, 62000 Putrajaya\r\nPutrajaya', '658ac58243b58.png', '2023-12-26 13:32:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `d_id` int(222) NOT NULL,
+  `branch_id` int(222) NOT NULL,
+  `title` varchar(222) NOT NULL,
+  `slogan` varchar(222) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `img` varchar(222) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`d_id`, `branch_id`, `title`, `slogan`, `price`, `img`) VALUES
+(1, 1, 'Americano', 'A coffee beverage made with espresso and hot water.', 12.00, '6589ba30f3c75.jpg'),
+(2, 1, 'Espresso', 'A coffee beverage made with a single shot of espresso.', 6.00, '3ba.jpg'),
+(3, 1, 'Double Espresso', 'A coffee beverage made with two shots of espresso.', 7.00, '3ba.jpg'),
+(4, 1, 'Cappuccino', 'A coffee beverage made with espresso and steamed milk.', 12.00, 'cp1.jpeg'),
+(5, 1, 'Caramello Cappuccino', 'A coffee beverage made with espresso, caramel sauce and steamed milk.', 12.00, 'cp1.jpeg'),
+(6, 1, 'Salted Caramello Cappuccino', 'A coffee beverage made with espresso, salted caramel sauce and steamed milk.', 12.00, 'cp1.jpeg'),
+(7, 1, 'Caffe Latte', 'A coffee beverage made with espresso and steamed milk.', 12.00, '2ab.jpeg'),
+(8, 1, 'Caramello Latte', 'A coffee beverage made with espresso, caramel sauce and steamed milk.', 12.00, '2ab.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `remark`
+--
+
+CREATE TABLE `remark` (
+  `id` int(11) NOT NULL,
+  `frm_id` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `remark` mediumtext NOT NULL,
+  `remarkDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `remark`
+--
+
+INSERT INTO `remark` (`id`, `frm_id`, `status`, `remark`, `remarkDate`) VALUES
+(14, 13, 'closed', 'IN PROCESS', '2023-12-25 17:31:03'),
+(15, 15, 'closed', 'thanks', '2023-12-27 14:23:48'),
+(16, 17, 'closed', 'Thanks', '2023-12-27 14:30:43'),
+(17, 18, 'in process', 'Please wait', '2023-12-27 14:56:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `state`
+--
+
+CREATE TABLE `state` (
+  `c_id` int(222) NOT NULL,
+  `c_name` varchar(222) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `state`
+--
+
+INSERT INTO `state` (`c_id`, `c_name`, `date`) VALUES
+(1, 'KualaLumpur', '2023-12-26 13:46:02'),
+(2, 'NegeriSembilan', '2023-12-26 13:46:06'),
+(3, 'Kedah', '2023-12-25 07:23:10'),
+(4, 'PulauPinang', '2023-12-26 13:46:11'),
+(5, 'Selangor', '2023-12-25 07:23:16'),
+(6, 'Johor', '2023-12-25 07:23:44'),
+(7, 'Kelantan', '2023-12-26 13:13:26'),
+(8, 'Melaka', '2023-12-26 13:13:30'),
+(9, 'Pahang', '2023-12-26 13:13:32'),
+(10, 'Perak', '2023-12-26 13:13:36'),
+(11, 'Perlis', '2023-12-26 13:13:38'),
+(12, 'Sabah', '2023-12-26 13:13:40'),
+(13, 'Putrajaya', '2023-12-26 13:14:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `u_id` int(222) NOT NULL,
+  `username` varchar(222) NOT NULL,
+  `f_name` varchar(222) NOT NULL,
+  `l_name` varchar(222) NOT NULL,
+  `email` varchar(222) NOT NULL,
+  `phone` varchar(222) NOT NULL,
+  `password` varchar(222) NOT NULL,
+  `address` text NOT NULL,
+  `status` int(222) NOT NULL DEFAULT 1,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_id`, `username`, `f_name`, `l_name`, `email`, `phone`, `password`, `address`, `status`, `date`) VALUES
+(8, 'ChoyYee', 'Choy Yee', 'Choong', 'choyyee@gmail.com', '01234567890', '928a3c27e646fdfb9ec2c6b33eeea71a', 'UTHM Parit Raja', 1, '2023-12-27 14:46:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_orders`
+--
+
+CREATE TABLE `users_orders` (
+  `o_id` int(222) NOT NULL,
+  `u_id` int(222) NOT NULL,
+  `title` varchar(222) NOT NULL,
+  `quantity` int(222) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `status` varchar(222) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `users_orders`
+--
+
+INSERT INTO `users_orders` (`o_id`, `u_id`, `title`, `quantity`, `price`, `status`, `date`) VALUES
+(1, 4, 'Spring Rolls', 2, 6.00, 'rejected', '2022-05-27 11:43:26'),
+(2, 4, 'Prawn Crackers', 1, 7.00, 'closed', '2022-05-27 11:11:41'),
+(3, 5, 'Chicken Madeira', 1, 23.00, 'closed', '2022-05-27 11:42:35'),
+(4, 5, 'Cheesy Mashed Potato', 1, 5.00, 'in process', '2022-05-27 11:42:55'),
+(5, 5, 'Meatballs Penne Pasta', 1, 10.00, 'closed', '2022-05-27 13:18:03'),
+(6, 5, 'Yorkshire Lamb Patties', 1, 14.00, NULL, '2022-05-27 11:40:51'),
+(7, 6, 'Yorkshire Lamb Patties', 1, 14.00, 'closed', '2022-05-27 13:04:33'),
+(8, 6, 'Lobster Thermidor', 1, 36.00, 'closed', '2022-05-27 13:05:24'),
+(9, 6, 'Stuffed Jacket Potatoes', 1, 8.00, 'rejected', '2022-05-27 13:03:53');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adm_id`);
+
+--
+-- Indexes for table `branch`
+--
+ALTER TABLE `branch`
+  ADD PRIMARY KEY (`branch_id`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`d_id`);
+
+--
+-- Indexes for table `remark`
+--
+ALTER TABLE `remark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `state`
+--
+ALTER TABLE `state`
+  ADD PRIMARY KEY (`c_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- Indexes for table `users_orders`
+--
+ALTER TABLE `users_orders`
+  ADD PRIMARY KEY (`o_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `adm_id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `branch`
+--
+ALTER TABLE `branch`
+  MODIFY `branch_id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `d_id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `remark`
+--
+ALTER TABLE `remark`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `state`
+--
+ALTER TABLE `state`
+  MODIFY `c_id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `u_id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `users_orders`
+--
+ALTER TABLE `users_orders`
+  MODIFY `o_id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
